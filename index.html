@@ -3,11 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>My Library</title>
     <link href="css/style.css" rel="stylesheet">
     <script src="script.js" defer></script>
   </head>
   <body>
-  
+    <form>
+      <fieldset>
+        <legend>Add a New Book</legend>
+        <label for="title">Book Title:</label>
+        <input type="text" name="title" id="title" required>
+        <label for="author">Book Author:</label>
+        <input type="text" name="author" id="author" required>
+        <label for="pages">Number of Pages:</label>
+        <input type="number" name="pages" id="pages" required>
+        <label for="status">Mark as read:</label>
+        <input type="checkbox" name="status" id="status">
+      </fieldset>
+      <button type="button">Add Book</button>
+    </form>
   </body>
 </html>
