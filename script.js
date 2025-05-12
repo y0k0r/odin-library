@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+const cardsDiv = document.querySelector(".cards");
 const btn = document.querySelector("button");
 btn.addEventListener("click", () => formHandler());
 
@@ -23,3 +24,12 @@ function addBookToLibrary (title, author, pages, hasRead) {
   myLibrary.push(new Book(title, author, pages, hasRead));
   console.log(myLibrary)
 }
+
+function displayBooks () {
+  for (book of myLibrary) {
+    const div = document.createElement("div");
+    div.classList.add("card");
+    cardsDiv.appendChild(div);
+  }
+}
+
