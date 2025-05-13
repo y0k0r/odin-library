@@ -22,13 +22,33 @@ function formHandler () {
 
 function addBookToLibrary (title, author, pages, hasRead) {
   myLibrary.push(new Book(title, author, pages, hasRead));
-  console.log(myLibrary)
+  displayBooks();
 }
 
 function displayBooks () {
+  cardsDiv.innerHTML='';
+
   for (book of myLibrary) {
     const div = document.createElement("div");
     div.classList.add("card");
+
+    const bookTitle = document.createElement("p");
+    const bookAuthor = document.createElement("p");
+    const bookPages = document.createElement("p");
+    const bookStatus = document.createElement("p");
+    bookTitle.innerText = `Title: ${book.title}`
+    bookAuthor.innerText = `Author: ${book.author}`
+    bookPages.innerText = `Pages: ${book.pages}`
+    if (book.hasRead) {
+      bookStatus.innerText = `Status: Read`
+    } else {
+      bookStatus.innerText = `Status: Not Read`
+    }
+
+    div.appendChild(bookTitle);
+    div.appendChild(bookAuthor);
+    div.appendChild(bookPages);
+    div.appendChild(bookStatus);
     cardsDiv.appendChild(div);
   }
 }
