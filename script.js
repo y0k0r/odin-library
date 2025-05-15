@@ -1,8 +1,17 @@
 const myLibrary = [];
 
+const dialog = document.querySelector("dialog");
 const cardsDiv = document.querySelector(".cards");
-const btn = document.querySelector("button");
-btn.addEventListener("click", () => formHandler());
+const submitBtn = document.querySelector(".submitButton");
+const addBookBtn = document.querySelector(".addBook");
+const closeBtn = document.querySelector(".closeButton");
+submitBtn.addEventListener("click", () => formHandler());
+addBookBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
+closeBtn.addEventListener("click", () => {
+  dialog.close();
+})
 
 function Book (title, author, pages, hasRead) {
   this.id = crypto.randomUUID();
@@ -17,7 +26,7 @@ function formHandler () {
   const author = document.querySelector("#author").value;
   const pages = document.querySelector('#pages').value;
   const hasRead = document.querySelector('#status').checked; 
-  addBookToLibrary(title, author, pages, hasRead)
+  addBookToLibrary(title, author, pages, hasRead);
 }
 
 function addBookToLibrary (title, author, pages, hasRead) {
