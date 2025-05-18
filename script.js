@@ -2,10 +2,8 @@ const myLibrary = [];
 
 const dialog = document.querySelector("dialog");
 const cardsDiv = document.querySelector(".cards");
-const submitBtn = document.querySelector(".submitButton");
 const addBookBtn = document.querySelector(".addBook");
 const closeBtn = document.querySelector(".closeButton");
-/*submitBtn.addEventListener("click", () => formHandler());*/
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
