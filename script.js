@@ -11,6 +11,7 @@ addBookBtn.addEventListener("click", () => {
 });
 closeBtn.addEventListener("click", () => {
   dialog.close();
+  dialog.querySelector("form").reset();
 })
 
 function Book (title, author, pages, hasRead) {
@@ -21,12 +22,18 @@ function Book (title, author, pages, hasRead) {
   this.hasRead = hasRead;
 }
 
+Book.prototype.changeStatus = function () {
+  this.hasRead = !this.hasRead;
+}
+
 function formHandler () {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const pages = document.querySelector('#pages').value;
   const hasRead = document.querySelector('#status').checked; 
   addBookToLibrary(title, author, pages, hasRead);
+  dialog.querySelector("form").reset();
+  dialog.close();
 }
 
 function addBookToLibrary (title, author, pages, hasRead) {
@@ -46,13 +53,17 @@ function displayBooks () {
     const bookPages = document.createElement("p");
     const bookStatus = document.createElement("p");
     const removeBtn = document.createElement("button");
-    bookTitle.innerText = `Title: ${book.title}`;
-    bookAuthor.innerText = `Author: ${book.author}`;
-    bookPages.innerText = `Pages: ${book.pages}`;
+    const statusBtn = document.createElement("button");
+
+    bookTitle.innerText = `${book.title}`;
+    bookAuthor.innerText = `by ${book.author}`;
+    bookPages.innerText = `${book.pages} Pages`;
     if (book.hasRead) {
-      bookStatus.innerText = `Status: Read`;
+      bookStatus.innerText = "Read";
+      statusBtn.innerText = "Mark as Unread";
     } else {
-      bookStatus.innerText = `Status: Not Read`;
+      bookStatus.innerText = "Unread";
+      statusBtn.innerText ="Mark as Read"
     }
 
     removeBtn.innerText = "Remove Book";
@@ -71,11 +82,26 @@ function displayBooks () {
           }
     })  
 
+    statusBtn.dataset.id = `${book.id}`
+    statusBtn.addEventListener("click", () => {
+       let index = 0;
+      for (let book of myLibrary) {
+        if (book.id === statusBtn.dataset.id) {
+          book.changeStatus();
+          displayBooks();
+          break;
+        }
+        index++;
+          }     
+    })
+
+
     card.dataset.id = `${book.id}`;
     card.appendChild(bookTitle);
     card.appendChild(bookAuthor);
     card.appendChild(bookPages);
     card.appendChild(bookStatus);
+    card.appendChild(statusBtn);
     card.appendChild(removeBtn);
     cardsDiv.appendChild(card);
   }
