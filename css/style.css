@@ -1,0 +1,128 @@
+body {
+  background: #457b9d;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1d3557;
+  color: #fffd
+}
+
+header button {
+  width: 175px;
+  height: 50px;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+.cards {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1d3557;
+  color: #f1faee;
+  height: 250px;
+  width: 220px;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 3px;
+  display: grid;
+}
+
+.card p {
+  margin: 0;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+.remove {
+  background: #e63946;
+}
+
+.status {
+  background: #a8dadc;
+  margin-bottom: 5px;
+}
+
+.remove, 
+.status {
+  border: none;
+  border-radius: 3px;
+  color: #f1faee;
+  font-weight: bold;
+}
+
+dialog {
+  background: #f1faee;
+  color: #1d3557;
+  border: none;
+  border-radius: 3px;
+  padding: 15px;
+}
+
+dialog fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  column-gap 60px;
+}
+
+dialog legend {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+dialog .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+dialog label {
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: .1rem;
+}
+dialog input {
+ border: 1.5px solid #e5e7eb;
+ border-radius: 3px;
+ width: 200px;
+ height: 20px;
+}
+
+dialog .form-button {
+  display: flex;
+  justify-content: center;
+}
+
+dialog form button {
+  margin-bottom: 5px;
+  background: #1d3557;
+  color: #f1faee;
+}
+dialog button {
+  width: 100px;
+  height: 40px;
+  background: #e63946;
+  border: none;
+  border-radius: 3px;
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 /.5);
+}

@@ -46,14 +46,16 @@ function displayBooks () {
 
   for (book of myLibrary) {
     const card = document.createElement("div");
-    card.classList.add("card");
-
     const bookTitle = document.createElement("p");
     const bookAuthor = document.createElement("p");
     const bookPages = document.createElement("p");
     const bookStatus = document.createElement("p");
     const removeBtn = document.createElement("button");
     const statusBtn = document.createElement("button");
+
+    card.classList.add("card");
+    removeBtn.classList.add("remove");
+    statusBtn.classList.add("status");
 
     bookTitle.innerText = `${book.title}`;
     bookAuthor.innerText = `by ${book.author}`;
@@ -109,4 +111,7 @@ function displayBooks () {
 
  
 
-
+addBookToLibrary("Wind Breaker, Vol. 11", "Naoya Matsumoto", 200, false); 
+addBookToLibrary("Apothecary Diaries, Vol. 14", "Natsu Hyuuga", 589, true);
+addBookToLibrary("Kaiju No. 8, Vol. 4", "Naoya Matsumoto", 200, true); 
+addBookToLibrary("Solo Leveling, Vol. 11", "Chugong", 312, true); 

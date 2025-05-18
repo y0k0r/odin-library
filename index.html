@@ -12,21 +12,36 @@
       <form>
         <fieldset>
           <legend>Add a New Book</legend>
-          <label for="title">Book Title:</label>
-          <input type="text" name="title" id="title" required>
-          <label for="author">Book Author:</label>
-          <input type="text" name="author" id="author" required>
-          <label for="pages">Number of Pages:</label>
-          <input type="number" name="pages" id="pages" required>
-          <label for="status">Mark as read:</label>
-          <input type="checkbox" name="status" id="status">
+          <div class="form-field">
+            <label for="title">BOOK TITLE</label>
+            <input type="text" name="title" id="title" required>
+          </div>
+          <div class="form-field">
+            <label for="author">BOOK AUTHOR</label>
+            <input type="text" name="author" id="author" required>
+          </div>
+          <div class="form-field">
+            <label for="pages">NUMBER OF PAGES</label>
+            <input type="number" name="pages" id="pages" required>
+          </div>
+          <div class="form-field">
+            <label for="status">MARK AS READ</label>
+            <input type="checkbox" name="status" id="status">
+          </div>
         </fieldset>
-        <button type="button" class="submitButton">Submit</button>
+        <div class="form-button">
+          <button type="button" class="submitButton">Submit</button>
+        </div>
       </form>
-        <button type="button" class="closeButton">Close</button>
+        <div class="form-button">
+          <button type="button" class="closeButton">Close</button>
+        </div>
     </dialog>
 
-    <button type="button" class="addBook">Add Book</button>
+    <header>
+      <h1>Library</h1>
+      <button type="button" class="addBook">Add Book</button>
+    </header>
     <div class="cards">
     </div>
   </body>
